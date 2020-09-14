@@ -69,7 +69,7 @@ endif ()
 endif ()
 
 
-find_package (Boost 1.38 REQUIRED
+find_package (Boost 1.68 REQUIRED
     COMPONENTS filesystem iostreams program_options regex system)
 
 find_package(Snappy)
@@ -138,21 +138,21 @@ macro (gen file ns)
     add_custom_target (${file}_hh DEPENDS ${file}.hh)
 endmacro (gen)
 
-gen (empty_record empty)
-gen (bigrecord testgen)
-gen (bigrecord_r testgen_r)
-gen (bigrecord2 testgen2)
-gen (tweet testgen3)
-gen (union_array_union uau)
-gen (union_map_union umu)
-gen (union_conflict uc)
-gen (recursive rec)
-gen (reuse ru)
-gen (circulardep cd)
-gen (tree1 tr1)
-gen (tree2 tr2)
-gen (crossref cr)
-gen (primitivetypes pt)
+#gen (empty_record empty)
+#gen (bigrecord testgen)
+#gen (bigrecord_r testgen_r)
+#gen (bigrecord2 testgen2)
+#gen (tweet testgen3)
+#gen (union_array_union uau)
+#gen (union_map_union umu)
+#gen (union_conflict uc)
+#gen (recursive rec)
+#gen (reuse ru)
+#gen (circulardep cd)
+#gen (tree1 tr1)
+#gen (tree2 tr2)
+#gen (crossref cr)
+#gen (primitivetypes pt)
 
 add_executable (avrogencpp impl/avrogencpp.cc)
 target_link_libraries (avrogencpp avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
@@ -171,18 +171,18 @@ unittest (unittest)
 unittest (SchemaTests)
 unittest (LargeSchemaTests)
 unittest (CodecTests)
-unittest (StreamTests)
+#unittest (StreamTests)
 unittest (SpecificTests)
-unittest (DataFileTests)
+#unittest (DataFileTests)
 unittest (JsonTests)
-unittest (AvrogencppTests)
+#unittest (AvrogencppTests)
 unittest (CompilerTests)
 
-add_dependencies (AvrogencppTests bigrecord_hh bigrecord_r_hh bigrecord2_hh
-    tweet_hh
-    union_array_union_hh union_map_union_hh union_conflict_hh
-    recursive_hh reuse_hh circulardep_hh tree1_hh tree2_hh crossref_hh
-    primitivetypes_hh empty_record_hh)
+#add_dependencies (AvrogencppTests bigrecord_hh bigrecord_r_hh bigrecord2_hh
+#    tweet_hh
+#    union_array_union_hh union_map_union_hh union_conflict_hh
+#    recursive_hh reuse_hh circulardep_hh tree1_hh tree2_hh crossref_hh
+#    primitivetypes_hh empty_record_hh)
 
 include (InstallRequiredSystemLibraries)
 
