@@ -18,9 +18,9 @@
 
 #include <complex>
 
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
-#include "avro/Specific.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
+#include "Specific.hh"
 
 namespace avro {
 template<typename T>

@@ -19,10 +19,10 @@
 #include <fstream>
 #include <complex>
 
-#include "avro/Compiler.hh"
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
-#include "avro/Specific.hh"
+#include "Compiler.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
+#include "Specific.hh"
 
 namespace avro {
 template<typename T>

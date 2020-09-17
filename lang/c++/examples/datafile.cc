@@ -19,11 +19,11 @@
 #include <fstream>
 
 #include "cpx.hh"
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
-#include "avro/ValidSchema.hh"
-#include "avro/Compiler.hh"
-#include "avro/DataFile.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
+#include "ValidSchema.hh"
+#include "Compiler.hh"
+#include "DataFile.hh"
 
 
 avro::ValidSchema loadSchema(const char* filename)

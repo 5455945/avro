@@ -22,9 +22,9 @@
 
 
 #include "boost/any.hpp"
-#include "avro/Specific.hh"
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
+#include "Specific.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
 
 namespace i {
 struct cpx {

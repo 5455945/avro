@@ -21,11 +21,11 @@
 #include "cpx.hh"
 #include "imaginary.hh"
 
-#include "avro/Compiler.hh"
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
-#include "avro/Specific.hh"
-#include "avro/Generic.hh"
+#include "Compiler.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
+#include "Specific.hh"
+#include "Generic.hh"
 
 
 

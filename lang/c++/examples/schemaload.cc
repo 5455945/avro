@@ -18,8 +18,8 @@
 
 #include <fstream>
 
-#include "avro/ValidSchema.hh"
-#include "avro/Compiler.hh"
+#include "ValidSchema.hh"
+#include "Compiler.hh"
 
 
 int

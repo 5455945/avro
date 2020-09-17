@@ -21,9 +21,9 @@
 #define CPX_HH_1278398428__H_
 
 
-#include "avro/Specific.hh"
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
+#include "Specific.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
 
 namespace c {
 struct cpx {

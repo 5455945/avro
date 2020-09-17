@@ -69,18 +69,19 @@ endif ()
 endif ()
 
 
-find_package (Boost 1.38 REQUIRED
+find_package (Boost 1.68 REQUIRED
     COMPONENTS filesystem iostreams program_options regex system)
 
 find_package(Snappy)
 if (SNAPPY_FOUND)
     set(SNAPPY_PKG libsnappy)
-    add_definitions(-DSNAPPY_CODEC_AVAILABLE)
+    #add_definitions(-DSNAPPY_CODEC_AVAILABLE)
     message("Enabled snappy codec")
 else (SNAPPY_FOUND)
     set(SNAPPY_PKG "")
-    set(SNAPPY_LIBRARIES "")
-    message("Disabled snappy codec. libsnappy not found.")
+    set(SNAPPY_INCLUDE_DIR "/home/soft/test/snappy")
+    set(SNAPPY_LIBRARIES "/home/soft/test/snappy/build/libsnappy.a")
+    #message("Disabled snappy codec. libsnappy not found.")
 endif (SNAPPY_FOUND)
 
 add_definitions (${Boost_LIB_DIAGNOSTIC_DEFINITIONS})
@@ -138,24 +139,40 @@ macro (gen file ns)
     add_custom_target (${file}_hh DEPENDS ${file}.hh)
 endmacro (gen)
 
-gen (empty_record empty)
-gen (bigrecord testgen)
-gen (bigrecord_r testgen_r)
-gen (bigrecord2 testgen2)
-gen (tweet testgen3)
-gen (union_array_union uau)
-gen (union_map_union umu)
-gen (union_conflict uc)
-gen (recursive rec)
-gen (reuse ru)
-gen (circulardep cd)
-gen (tree1 tr1)
-gen (tree2 tr2)
-gen (crossref cr)
-gen (primitivetypes pt)
+#gen (empty_record empty)
+#gen (bigrecord testgen)
+#gen (bigrecord_r testgen_r)
+#gen (bigrecord2 testgen2)
+#gen (tweet testgen3)
+#gen (union_array_union uau)
+#gen (union_map_union umu)
+#gen (union_conflict uc)
+#gen (recursive rec)
+#gen (reuse ru)
+#gen (circulardep cd)
+#gen (tree1 tr1)
+#gen (tree2 tr2)
+#gen (crossref cr)
+#gen (primitivetypes pt)
 
 add_executable (avrogencpp impl/avrogencpp.cc)
 target_link_libraries (avrogencpp avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+
+# examples
+add_executable (examples_custom examples/custom.cc)
+target_link_libraries (examples_custom avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+add_executable (examples_datafile examples/datafile.cc)
+target_link_libraries (examples_datafile avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+add_executable (examples_generated examples/generated.cc)
+target_link_libraries (examples_generated avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+add_executable (examples_generic examples/generic.cc)
+target_link_libraries (examples_generic avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+add_executable (examples_resolving examples/resolving.cc)
+target_link_libraries (examples_resolving avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+add_executable (examples_schemaload examples/schemaload.cc)
+target_link_libraries (examples_schemaload avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
+add_executable (examples_validating examples/validating.cc)
+target_link_libraries (examples_validating avrocpp_s ${Boost_LIBRARIES} ${SNAPPY_LIBRARIES})
 
 enable_testing()
 
@@ -166,23 +183,23 @@ macro (unittest name)
         COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${name})
 endmacro (unittest)
 
-unittest (buffertest)
-unittest (unittest)
-unittest (SchemaTests)
-unittest (LargeSchemaTests)
-unittest (CodecTests)
-unittest (StreamTests)
-unittest (SpecificTests)
-unittest (DataFileTests)
-unittest (JsonTests)
-unittest (AvrogencppTests)
-unittest (CompilerTests)
+#unittest (buffertest)
+#unittest (unittest)
+#unittest (SchemaTests)
+#unittest (LargeSchemaTests)
+#unittest (CodecTests)
+#unittest (StreamTests)
+#unittest (SpecificTests)
+#unittest (DataFileTests)
+#unittest (JsonTests)
+#unittest (AvrogencppTests)
+#unittest (CompilerTests)
 
-add_dependencies (AvrogencppTests bigrecord_hh bigrecord_r_hh bigrecord2_hh
-    tweet_hh
-    union_array_union_hh union_map_union_hh union_conflict_hh
-    recursive_hh reuse_hh circulardep_hh tree1_hh tree2_hh crossref_hh
-    primitivetypes_hh empty_record_hh)
+#add_dependencies (AvrogencppTests bigrecord_hh bigrecord_r_hh bigrecord2_hh
+#    tweet_hh
+#    union_array_union_hh union_map_union_hh union_conflict_hh
+#    recursive_hh reuse_hh circulardep_hh tree1_hh tree2_hh crossref_hh
+#    primitivetypes_hh empty_record_hh)
 
 include (InstallRequiredSystemLibraries)
 

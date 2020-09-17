@@ -17,8 +17,8 @@
  */
 
 #include "cpx.hh"
-#include "avro/Encoder.hh"
-#include "avro/Decoder.hh"
+#include "Encoder.hh"
+#include "Decoder.hh"
 
 
 int
