@@ -1,0 +1,484 @@
+[
+	{
+		"type": "record",
+		"namespace": "com.itekoo",
+		"name": "BasicInfo",
+		"fields": [
+			{
+				"name": "exchangeCode",
+				"type": "int"
+			},
+			{
+				"name": "code",
+				"type": [
+					"string",
+					"null"
+				]
+			},
+			{
+				"name": "name",
+				"type": [
+					"string",
+					"null"
+				]
+			},
+			{
+				"name": "quotaDate",
+				"type": [
+					"string",
+					"null"
+				]
+			},
+			{
+				"name": "genTime",
+				"type": [
+					"string",
+					"null"
+				]
+			},
+			{
+				"name": "highPx",
+				"type": "double"
+			},
+			{
+				"name": "lowPx",
+				"type": "double"
+			},
+			{
+				"name": "lastPx",
+				"type": "double"
+			},
+			{
+				"name": "openPx",
+				"type": "double"
+			},
+			{
+				"name": "lastClose",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"type": "record",
+		"namespace": "com.itekoo",
+		"name": "PriceInfo",
+		"fields": [
+			{
+				"name": "bidPx",
+				"type": "double"
+			},
+			{
+				"name": "bidQty",
+				"type": "int"
+			},
+			{
+				"name": "bidImplyQty",
+				"type": "int"
+			},
+			{
+				"name": "askPx",
+				"type": "double"
+			},
+			{
+				"name": "askQty",
+				"type": "int"
+			},
+			{
+				"name": "askImplyQty",
+				"type": "int"
+			},
+			{
+				"name": "riseLimit",
+				"type": "double"
+			},
+			{
+				"name": "fallLimit",
+				"type": "double"
+			},
+			{
+				"name": "lifeLow",
+				"type": "double"
+			},
+			{
+				"name": "lifeHigh",
+				"type": "double"
+			},
+			{
+				"name": "clearPrice",
+				"type": "double"
+			},
+			{
+				"name": "closeClearPrice",
+				"type": "double"
+			},
+			{
+				"name": "avgPx",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "MatchInfo",
+		"fields": [
+			{
+				"name": "lastMatchQty",
+				"type": "int"
+			},
+			{
+				"name": "matchQty",
+				"type": "int"
+			},
+			{
+				"name": "turnover",
+				"type": "double"
+			},
+			{
+				"name": "initOpenInterest",
+				"type": "int"
+			},
+			{
+				"name": "openInterest",
+				"type": "int"
+			},
+			{
+				"name": "interestChg",
+				"type": "long"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "PriceQtyChg",
+		"fields": [
+			{
+				"name": "closePx",
+				"type": "double"
+			},
+			{
+				"name": "numTrades",
+				"type": "long"
+			},
+			{
+				"name": "instrumentStatus",
+				"type": [
+					"string",
+					"null"
+				]
+			},
+			{
+				"name": "totalVolumeTrade",
+				"type": "long"
+			},
+			{
+				"name": "totalValueTrade",
+				"type": "double"
+			},
+			{
+				"name": "totalBidQty",
+				"type": "long"
+			},
+			{
+				"name": "totalOfferQty",
+				"type": "long"
+			},
+			{
+				"name": "weightedAvgBidPx",
+				"type": "double"
+			},
+			{
+				"name": "weightedAvgOfferPx",
+				"type": "double"
+			},
+			{
+				"name": "position",
+				"type": "long"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "ETFQuota",
+		"fields": [
+			{
+				"name": "iOPV",
+				"type": "double"
+			},
+			{
+				"name": "eTFBuyNumber",
+				"type": "int"
+			},
+			{
+				"name": "eTFBuyAmount",
+				"type": "long"
+			},
+			{
+				"name": "eTFBuyMoney",
+				"type": "double"
+			},
+			{
+				"name": "eTFSellNumber",
+				"type": "int"
+			},
+			{
+				"name": "eTFSellAmount",
+				"type": "long"
+			},
+			{
+				"name": "eTFSellMoney",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "BondsAndWarrant",
+		"fields": [
+			{
+				"name": "yieldToMaturity",
+				"type": "double"
+			},
+			{
+				"name": "totalWarrantExecQty",
+				"type": "long"
+			},
+			{
+				"name": "warLowerPx",
+				"type": "double"
+			},
+			{
+				"name": "warUpperPx",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "SellBuyChg",
+		"fields": [
+			{
+				"name": "withdrawBuyNumber",
+				"type": "int"
+			},
+			{
+				"name": "withdrawBuyAmount",
+				"type": "long"
+			},
+			{
+				"name": "withdrawBuyMoney",
+				"type": "double"
+			},
+			{
+				"name": "withdrawSellNumber",
+				"type": "int"
+			},
+			{
+				"name": "withdrawSellAmount",
+				"type": "long"
+			},
+			{
+				"name": "withdrawSellMoney",
+				"type": "double"
+			},
+			{
+				"name": "totalBidNumber",
+				"type": "int"
+			},
+			{
+				"name": "totalOfferNumber",
+				"type": "int"
+			},
+			{
+				"name": "bidTradeMaxDuration",
+				"type": "int"
+			},
+			{
+				"name": "offerTradeMaxDuration",
+				"type": "int"
+			},
+			{
+				"name": "numBidOrders",
+				"type": "int"
+			},
+			{
+				"name": "numOfferOrders",
+				"type": "int"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "Price",
+		"fields": [
+			{
+				"name": "price0",
+				"type": "double"
+			},
+			{
+				"name": "price1",
+				"type": "double"
+			},
+			{
+				"name": "price2",
+				"type": "double"
+			},
+			{
+				"name": "price3",
+				"type": "double"
+			},
+			{
+				"name": "price4",
+				"type": "double"
+			},
+			{
+				"name": "price5",
+				"type": "double"
+			},
+			{
+				"name": "price6",
+				"type": "double"
+			},
+			{
+				"name": "price7",
+				"type": "double"
+			},
+			{
+				"name": "price8",
+				"type": "double"
+			},
+			{
+				"name": "price9",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "Qty",
+		"fields": [
+			{
+				"name": "qty0",
+				"type": "long"
+			},
+			{
+				"name": "qty1",
+				"type": "long"
+			},
+			{
+				"name": "qty2",
+				"type": "long"
+			},
+			{
+				"name": "qty3",
+				"type": "long"
+			},
+			{
+				"name": "qty4",
+				"type": "long"
+			},
+			{
+				"name": "qty5",
+				"type": "long"
+			},
+			{
+				"name": "qty6",
+				"type": "long"
+			},
+			{
+				"name": "qty7",
+				"type": "long"
+			},
+			{
+				"name": "qty8",
+				"type": "long"
+			},
+			{
+				"name": "qty9",
+				"type": "long"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "Book",
+		"fields": [
+			{
+				"name": "buyPrice",
+				"type": "Price"
+			},
+			{
+				"name": "buyQty",
+				"type": "Qty"
+			},
+			{
+				"name": "sellPrice",
+				"type": "Price"
+			},
+			{
+				"name": "sellQty",
+				"type": "Qty"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "Snapshot",
+		"fields": [
+			{
+				"name": "basicInfo",
+				"type": "BasicInfo"
+			},
+			{
+				"name": "priceQtyChg",
+				"type": "PriceQtyChg"
+			},
+			{
+				"name": "book",
+				"type": "Book"
+			},
+			{
+				"name": "etfQuota",
+				"type": "ETFQuota"
+			},
+			{
+				"name": "bondsAndWarrant",
+				"type": "BondsAndWarrant"
+			},
+			{
+				"name": "sellBuyChg",
+				"type": "SellBuyChg"
+			},
+			{
+				"name": "upperPx",
+				"type": "double"
+			},
+			{
+				"name": "lowerPx",
+				"type": "double"
+			}
+		]
+	},
+	{
+		"namespace": "com.itekoo",
+		"type": "record",
+		"name": "SnapshotMessage",
+		"fields": [
+			{
+				"name": "records",
+				"type": {
+					"type": "array",
+					"items": "com.itekoo.Snapshot"
+				}
+			}
+		]
+	}
+]

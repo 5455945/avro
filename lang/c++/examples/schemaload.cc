@@ -21,12 +21,11 @@
 #include "ValidSchema.hh"
 #include "Compiler.hh"
 
-
-int
-main()
+int main()
 {
     std::ifstream in("cpx.json");
 
     avro::ValidSchema cpxSchema;
     avro::compileJsonSchema(in, cpxSchema);
+    return 0;
 }

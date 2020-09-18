@@ -50,15 +50,13 @@ main()
     avro::compileJsonSchema(ifs, cpxSchema);
 
     std::unique_ptr<avro::OutputStream> out = avro::memoryOutputStream();
-    avro::EncoderPtr e = avro::validatingEncoder(cpxSchema,
-        avro::binaryEncoder());
+    avro::EncoderPtr e = avro::validatingEncoder(cpxSchema, avro::binaryEncoder());
     e->init(*out);
     std::complex<double> c1(1.0, 2.0);
     avro::encode(*e, c1);
 
     std::unique_ptr<avro::InputStream> in = avro::memoryInputStream(*out);
-    avro::DecoderPtr d = avro::validatingDecoder(cpxSchema,
-        avro::binaryDecoder());
+    avro::DecoderPtr d = avro::validatingDecoder(cpxSchema, avro::binaryDecoder());
     d->init(*in);
 
     std::complex<double> c2;

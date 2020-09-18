@@ -37,8 +37,7 @@ avro::ValidSchema load(const char* filename)
     return result;
 }
 
-int
-main()
+int main()
 {
     avro::ValidSchema cpxSchema = load("cpx.json");
     avro::ValidSchema imaginarySchema = load("imaginary.json");
@@ -52,12 +51,11 @@ main()
     avro::encode(*e, c1);
 
     std::unique_ptr<avro::InputStream> in = avro::memoryInputStream(*out);
-    avro::DecoderPtr d = avro::resolvingDecoder(cpxSchema, imaginarySchema,
-        avro::binaryDecoder());
+    avro::DecoderPtr d = avro::resolvingDecoder(cpxSchema, imaginarySchema, avro::binaryDecoder());
     d->init(*in);
 
     i::cpx c2;
     avro::decode(*d, c2);
     std::cout << "Imaginary: " << c2.im << std::endl;
-
+    return 0;
 }

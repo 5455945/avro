@@ -27,11 +27,9 @@
 #include "Specific.hh"
 #include "Generic.hh"
 
-int
-main()
+int main()
 {
     std::ifstream ifs("cpx.json");
-
     avro::ValidSchema cpxSchema;
     avro::compileJsonSchema(ifs, cpxSchema);
 

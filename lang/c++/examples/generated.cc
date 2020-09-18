@@ -21,8 +21,7 @@
 #include "Decoder.hh"
 
 
-int
-main()
+int main()
 {
     std::unique_ptr<avro::OutputStream> out = avro::memoryOutputStream();
     avro::EncoderPtr e = avro::binaryEncoder();

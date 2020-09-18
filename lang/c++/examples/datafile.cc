@@ -34,11 +34,16 @@ avro::ValidSchema loadSchema(const char* filename)
     return result;
 }
 
-int
-main()
+int main()
 {
-    avro::ValidSchema cpxSchema = loadSchema("cpx.json");
+    {
+        std::ifstream ifs("test.schema");
+        avro::ValidSchema avroSchema;
+        avro::compileJsonSchema(ifs, avroSchema);
+        std::cout << avroSchema.toJson() << std::endl;
+    }
 
+    avro::ValidSchema cpxSchema = loadSchema("cpx.json");
     {
         avro::DataFileWriter<c::cpx> dfw("test.bin", cpxSchema);
         c::cpx c1;
@@ -56,6 +61,18 @@ main()
         while (dfr.read(c2)) {
             std::cout << '(' << c2.re << ", " << c2.im << ')' << std::endl;
         }
+        std::cout << cpxSchema.toJson() << std::endl;
+    }
+    {
+        //std::ifstream ifs("cpx.json");
+        //avro::ValidSchema cpxSchema;
+        //avro::compileJsonSchema(ifs, cpxSchema);
+
+        //std::unique_ptr<avro::InputStream> in = avro::memoryInputStream(*out);
+        //avro::DecoderPtr d = avro::binaryDecoder();
+        //d->init(*in);
+        //std::cout << d->decodeString() << std::endl;
+        //avro::jsonDecoder(cpxSchema);
     }
     return 0;
 }

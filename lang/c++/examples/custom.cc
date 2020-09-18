@@ -39,8 +39,7 @@ struct codec_traits<std::complex<T> > {
 };
 
 }
-int
-main()
+int main()
 {
     std::unique_ptr<avro::OutputStream> out = avro::memoryOutputStream();
     avro::EncoderPtr e = avro::binaryEncoder();

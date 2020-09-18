@@ -68,7 +68,7 @@ if (AVRO_ADD_PROTECTOR_FLAGS)
 endif ()
 endif ()
 
-
+## 这里需要调整为自己的boost版本
 find_package (Boost 1.68 REQUIRED
     COMPONENTS filesystem iostreams program_options regex system)
 
@@ -79,6 +79,7 @@ if (SNAPPY_FOUND)
     message("Enabled snappy codec")
 else (SNAPPY_FOUND)
     set(SNAPPY_PKG "")
+    ## 这里需要修改为自己的路径
     set(SNAPPY_INCLUDE_DIR "/home/soft/test/snappy")
     set(SNAPPY_LIBRARIES "/home/soft/test/snappy/build/libsnappy.a")
     #message("Disabled snappy codec. libsnappy not found.")
@@ -139,6 +140,7 @@ macro (gen file ns)
     add_custom_target (${file}_hh DEPENDS ${file}.hh)
 endmacro (gen)
 
+## 上面的宏有些问题，导致下面运行出错
 #gen (empty_record empty)
 #gen (bigrecord testgen)
 #gen (bigrecord_r testgen_r)
@@ -183,6 +185,7 @@ macro (unittest name)
         COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${name})
 endmacro (unittest)
 
+## 注释小下面测试内容，依赖较多
 #unittest (buffertest)
 #unittest (unittest)
 #unittest (SchemaTests)
